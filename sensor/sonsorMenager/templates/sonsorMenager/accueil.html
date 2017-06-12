@@ -1,0 +1,14 @@
+{% extends "sonsorMenager/base.html" %}
+{% block title %}Ma page d'accueil{% endblock %}
+{% block content %}
+    <h2>Bienvenue !</h2>
+    {% for mote in motes %}
+    <div class="article">
+    	<h3>{{ mote.board }}</h3>
+    	<p>{{ mote.data}}</p>
+        <p><a href="{% url 'lire' mote.id %}">Detail d'activité</a>
+    </div>
+{% empty %}
+    <p>Aucun capteur.</p>
+{% endfor %}
+{% endblock %}
